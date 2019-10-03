@@ -10,6 +10,12 @@ Create an array of strings called `colors` that contain "orange", "red", "yellow
 
 Then, using array subscripting and string interpolation, print out the String `"orange, yellow, and lavender are some of my favorite colors"`.
 
+Answer
+```swift
+var colors = ["orange", "red", "yellow", "turquoise", "lavender"]
+
+print("\(colors[0]), \(colors[2]), and \(colors[4]) are some of my favorite colors")
+```
 
 ## Question 2
 
@@ -17,7 +23,13 @@ Remove "Illinois" and "Kansas" from the array below.
 
 `var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]`
 
+Answer
+```swift
+var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]
 
+westernStates.popLast()
+westernStates.popLast()
+```
 ## Question 3
 
 Iterate through the array below. For each state, print out the name of the state, a colon, and whether it is or is not **in the continental United States.**
@@ -35,7 +47,32 @@ Iterate through the array below. For each sentence, print out how many non-white
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
 
+Answer
+```swift
+let myString = "This is good practice with Strings!"
+var myStringSpaceCount = 0
+var myFavoriteQuotesSpaceCount = 0
 
+let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]
+
+for space in myString {
+    if space == " " {
+        myStringSpaceCount += 1
+    }
+}
+
+for quote in myFavoriteQuotes {
+    for space in quote {
+        if space == " " {
+            myFavoriteQuotesSpaceCount += 1
+        }
+    }
+}
+
+print(myStringSpaceCount)
+print(myFavoriteQuotesSpaceCount)
+
+```
 ## Question 5
 
 Iterate through `garden` and place any 🌷 that you find into the `basket`. Replace any 🌷 that you pick up with `"dirt"`. Then print how many 🌷 are in your `basket`.
@@ -43,6 +80,20 @@ Iterate through `garden` and place any 🌷 that you find into the `basket`. Rep
 ```swift
 var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
 var basket = [String]()
+```
+Answer
+```swift
+var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
+var basket = [String]()
+
+for (index,flower) in garden.enumerated() {
+    if flower == "🌷" {
+        garden[index] = "dirt"
+        basket.append("🌷")
+    }
+}
+
+print(basket.count)
 ```
 
 ## Question 6
@@ -56,7 +107,16 @@ The below array represents an unfinished batting lineup for a baseball team. **Y
 
 `var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]`
 
+Answer
+```swift
+var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]
 
+battingLineup.append("Suzuki")
+battingLineup[1] = "Tejada"
+battingLineup[5] = "Guerrero"
+let last = battingLineup.remove(at: 0)
+battingLineup.append(last)
+```
 ## Question 7
 
 Given an array of Ints, find out if it contains a target number.  
@@ -89,7 +149,21 @@ target = 3
 
 //false
 ```
+Answer
+```swift
+var numbers: [Int]
 
+let target: Int = 32
+
+for (index, num) in numbers.enumerated() {
+    if num == target {
+        print(true)
+    }   
+    if index == numbers.count - 1 && num != target {
+        print(false)
+    }
+}
+```
 
 ## Question 8
 
